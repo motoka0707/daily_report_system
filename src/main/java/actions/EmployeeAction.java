@@ -16,12 +16,15 @@ import services.EmployeeService;
  *
  */
 public class EmployeeAction extends ActionBase {
+
     private EmployeeService service;
+
     /**
      * メソッドを実行する
      */
     @Override
     public void process() throws ServletException, IOException {
+
         service = new EmployeeService();
 
         //メソッドを実行
@@ -61,6 +64,4 @@ public class EmployeeAction extends ActionBase {
 
     }
 
-    }
-
-
+}

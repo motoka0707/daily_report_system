@@ -22,7 +22,7 @@ import lombok.Setter;
  *
  */
 
-@Table(name="JpaConst.TABLE_EMP")
+@Table(name=JpaConst.TABLE_EMP)
 @NamedQueries({
     @NamedQuery(
         name=JpaConst.Q_EMP_GET_ALL,

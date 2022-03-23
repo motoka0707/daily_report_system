@@ -119,6 +119,8 @@ public class EmployeeService extends ServiceBase {
 
         //エラーを返却（エラーがなければ0件の空リスト）
         return errors;
+
+
     }
 
     /**
@@ -240,8 +242,6 @@ public class EmployeeService extends ServiceBase {
         em.persist(EmployeeConverter.toModel(ev));
         em.getTransaction().commit();
 
-      //登録内容のバリデーションを行う
-        List<String> errors = EmployeeValidator.validate(this, ev, true, true);
 
     }
 
@@ -256,32 +256,7 @@ public class EmployeeService extends ServiceBase {
         EmployeeConverter.copyViewToModel(e, ev);
         em.getTransaction().commit();
 
-        boolean validateCode = false;
-        if (!savedEmp.getCode().equals(ev.getCode())) {
-            //社員番号を更新する場合
 
-            //社員番号についてのバリデーションを行う
-            validateCode = true;
-
-            //略
-        }
-
-        //略
-
-        boolean validatePass = false;
-        if (ev.getPassword() != null && !ev.getPassword().equals("")) {
-            //パスワードに入力がある場合
-
-            //パスワードについてのバリデーションを行う
-            validatePass = true;
-
-            //略
-        }
-
-        //略
-
-        //更新内容についてバリデーションを行う
-        List<String> errors = EmployeeValidator.validate(this, savedEmp, validateCode, validatePass);
     }
 
 }
